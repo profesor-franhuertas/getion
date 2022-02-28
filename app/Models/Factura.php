@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Factura extends Model
 {
     use HasFactory;
+
+
+    protected $primaryKey='numero';
+    public function lineas(){
+        return $this->hasMany(Linea::class,'factura');
+    }
 }

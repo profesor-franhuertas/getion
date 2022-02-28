@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Linea extends Model
 {
     use HasFactory;
+    
+    public function factura(){
+        return $this->belongsTo(Factura::class,'numero');
+    }
 }
