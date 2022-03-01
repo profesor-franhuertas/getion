@@ -17,7 +17,7 @@ class LineaFactory extends Factory
             'producto'=>$this->faker->sentence(),
             'cantidad'=>$this->faker->numberBetween(1,10),
             'precio'=>$this->faker->randomNumber(),
-            'factura'=>$this->factory(App\Models\Factura::class),
+            
         ];
     }
 }

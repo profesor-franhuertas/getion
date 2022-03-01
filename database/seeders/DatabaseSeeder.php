@@ -14,7 +14,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        \App\Models\Factura::factory(20)->create();
-        \App\Models\Linea::factory(60)->create();
+        \App\Models\Factura::factory(20)->create()->each(function ($factura){
+            $lineas=\App\Models\Linea::factory(5)-create();
+            $factura->lineas()->saveMany($lineas);
+       
+        });
+      
     }
 }
