@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\Factura;
 class LineaFactory extends Factory
 {
     /**
@@ -16,7 +16,10 @@ class LineaFactory extends Factory
         return [
             'producto'=>$this->faker->sentence(),
             'cantidad'=>$this->faker->numberBetween(1,10),
-            'precio'=>$this->faker->randomNumber(),
+            'precio'=>$this->faker->numberBetween(1,10000),
+            'factura_numero'=>function(){
+                return Factura::factory()->create()->numero;
+            },
             
         ];
     }

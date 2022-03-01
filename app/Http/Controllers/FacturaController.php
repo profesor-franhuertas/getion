@@ -58,8 +58,8 @@ class FacturaController extends Controller
      */
     public function edit($num)
     {
-        $factura=Factura::where('numero',$num)->get();
-        //return $factura;
+        $factura=Factura::find($num);
+       
         return view('factura',['factura'=>$factura]);
     }
 

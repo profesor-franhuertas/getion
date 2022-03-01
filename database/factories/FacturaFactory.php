@@ -14,11 +14,13 @@ class FacturaFactory extends Factory
     public function definition()
     {
         return [
+            'numero'=>$this->faker->unique()->numberBetween(1,100),
             'nombre'=>$this->faker->sentence(),
             'direccion'=>$this->faker->sentence(),
-            'poblacion'=>$this->faker->sentence(),
-            'provincia'=>$this->faker->sentence(),
-            'numero'=>$this->faker->unique()->numberBetween(1,1000),
+            'poblacion'=>$this->faker->word(),
+            'provincia'=>$this->faker->word(),
+            'cpostal'=>$this->faker->numerify('#####'),
+            'telefono'=>$this->faker->phoneNumber(),
             'fecha'=>$this->faker->date(),
             
         ];
