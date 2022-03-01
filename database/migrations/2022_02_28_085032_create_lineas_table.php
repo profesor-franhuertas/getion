@@ -19,8 +19,8 @@ class CreateLineasTable extends Migration
             $table->string('producto');
             $table->float('cantidad')->default(1);
             $table->float('precio')->default(0);
-            $table->integer('factura');
-            $table->foreign('factura','factura_linea')
+            $table->integer('factura_numero');
+            $table->foreign('factura_numero')
                 ->references('numero')
                 ->on('facturas')
                 ->onUpdate('cascade')

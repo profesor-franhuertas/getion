@@ -10,6 +10,6 @@ class Linea extends Model
     use HasFactory;
     
     public function factura(){
-        return $this->belongsTo(Factura::class,'numero');
+        return $this->belongsTo('App\Models\Factura');
     }
 }

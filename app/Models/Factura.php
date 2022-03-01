@@ -11,7 +11,8 @@ class Factura extends Model
 
 
     protected $primaryKey='numero';
+
     public function lineas(){
-        return $this->hasMany(Linea::class,'factura');
+        return $this->hasMany('App\Models\Linea');
     }
 }
