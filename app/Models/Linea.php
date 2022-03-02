@@ -12,4 +12,7 @@ class Linea extends Model
     public function factura(){
         return $this->belongsTo('App\Models\Factura');
     }
+    public function producto(){
+        return $this->belongsTo('App\Models\Producto');
+    }
 }

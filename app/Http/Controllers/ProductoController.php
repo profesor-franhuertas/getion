@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Factura;
 use App\Models\Producto;
+use App\Http\Requests\StoreProductoRequest;
+use App\Http\Requests\UpdateProductoRequest;
 
-class FacturaController extends Controller
+class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $facturas=Factura::all();
-      
-        return view('lista',['facturas'=>$facturas]);
+        //
     }
 
     /**
@@ -33,10 +31,10 @@ class FacturaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreProductoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductoRequest $request)
     {
         //
     }
@@ -44,10 +42,10 @@ class FacturaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Producto $producto)
     {
         //
     }
@@ -55,24 +53,22 @@ class FacturaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit($num)
+    public function edit(Producto $producto)
     {
-        $factura=Factura::find($num);
-       $productos=Producto::all();
-        return view('factura',['factura'=>$factura,'productos'=>$productos]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $num
+     * @param  \App\Http\Requests\UpdateProductoRequest  $request
+     * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $num)
+    public function update(UpdateProductoRequest $request, Producto $producto)
     {
         //
     }
@@ -80,10 +76,10 @@ class FacturaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Producto $producto)
     {
         //
     }

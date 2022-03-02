@@ -20,3 +20,4 @@ Route::get('/', function () {
 })->name('home');
 Route::resource('facturas',FacturaController::class);
 Route::resource('lineas',LineaController::class);
+Route::post('ajax/producto',[AjaxController::class,'producto'])->name('ajax.producto');

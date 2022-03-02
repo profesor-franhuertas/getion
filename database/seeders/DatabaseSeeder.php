@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\Producto::factory(10)->create();
         Factura::factory(20)->create();
         $facturas=Factura::all('numero');
         for ($i=0;$i<50;$i++){
