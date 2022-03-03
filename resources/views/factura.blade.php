@@ -28,9 +28,9 @@
             <option value="{{$producto->id}}">{{$producto->descripcion}}</option>
         @endforeach
         </select>
-    Descripción: <input type="text" name='descripcion' id="descripcion"/>
+    Descripción: <input type="text" name='descripcion' id="descripcion" value=""/>
     Cantidad: <input type="text" name='cantidad' id="cantidad" />
-    Precio: <input type="text" name='precio' id="precio"/>
+    Precio: <input type="text" name='precio' id="precio" value=""/>
     <input type='submit' name="Añadir" value='Añadir'/><br>
 </form>
 <br><br>
@@ -66,8 +66,10 @@ $(document).ready(function(){
             method:'post',
             data:{'id':id},
             success:function(data){
-                alert(data);
-            }
+                var datos=JSON.parse(data);
+                $("#precio").val(datos.precio);
+                $("#descripcion").val(datos.descripcion);
+            
         });
 
         }else{
