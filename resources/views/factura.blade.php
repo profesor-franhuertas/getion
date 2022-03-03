@@ -22,7 +22,8 @@
     @csrf
     <input type="hidden" name='factura' size="50" value={{$factura->numero}}/>
     
-    Producto: <select name='producto_id' id='producto_id' onchange="getProducto(this)">
+    Producto: <select name='producto_id' id='producto_id' >
+        <option value="0" selected>Elige un producto</option>
         @foreach ($productos as $producto)
             <option value="{{$producto->id}}">{{$producto->descripcion}}</option>
         @endforeach
@@ -47,25 +48,34 @@
 
     
 
-    function getProducto(e){
-        
-        e.preventDefault();
-        alert("hola");
-        var producto_id=$("select[name=producto_id]").val();
+$(document).ready(function(){
+		
+	$("#producto_id").change(function(){
+ 
 
+        $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+	
+        var id=$("select[name=producto_id]").val();
+        if (id!=0){
         $.ajax({
             url: '{{route('ajax.producto')}}',
-            method:'POST',
-            data:{id:producto_id},
-            sucess:function(data){
+            method:'post',
+            data:{'id':id},
+            success:function(data){
                 alert(data);
             }
         });
 
-        
+        }else{
+            alert("Producto no seleccionado");
+        }
             
         });
-
+    });
     </script>
 
 @endsection

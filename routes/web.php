@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\LineaController;
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,4 @@ Route::get('/', function () {
 })->name('home');
 Route::resource('facturas',FacturaController::class);
 Route::resource('lineas',LineaController::class);
-Route::post('ajax/producto',[AjaxController::class,'producto'])->name('ajax.producto');
+Route::post('ajax/productos',[AjaxController::class,'producto'])->name('ajax.producto');
