@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         for ($i=0;$i<50;$i++){
          Linea::factory(1)->create(['factura_numero'=>$facturas[random_int(0,19)]]);
         }
-      
+        \App\Models\Pedido::factory(20)->create();
+        \App\Models\LineaPedido::factory(50)->create();
     }
 }
